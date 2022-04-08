@@ -7,7 +7,6 @@ const count = ref(0);
 </script>
 
 <template>
-  <h1 class="pl-3">{{ msg }}</h1>
   <button>中文</button>
   <button>英文</button>
 </template>

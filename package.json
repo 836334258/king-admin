@@ -17,8 +17,10 @@
     "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && yarn bootstrap"
   },
   "dependencies": {
+    "@vueuse/core": "^8.2.5",
     "ant-design-vue": "^3.1.1",
     "axios": "^0.26.1",
+    "dayjs": "^1.11.0",
     "echarts": "^5.3.2",
     "lodash-es": "^4.17.21",
     "nprogress": "^0.2.0",
