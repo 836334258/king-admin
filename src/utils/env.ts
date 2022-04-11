@@ -1,5 +1,6 @@
 import { warn } from "./log";
 import { GlobEnvConfig } from "/#/config";
+import pkg from "../../package.json";
 
 export const devMode = "development";
 
@@ -23,7 +24,7 @@ export function getCommonStoragePrefix() {
 }
 
 export function getStorageShortName() {
-  return ``;
+  return `${getCommonStoragePrefix()}${`__${pkg.version}`}}__`.toUpperCase();
 }
 
 export function getAppEnvConfig() {

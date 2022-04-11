@@ -7,6 +7,7 @@ export function useLocale() {
   const getLocale = computed(() => localeStore.getLocale);
 
   const getAntdLocale = computed((): any => {
+    console.log("i18n", i18n);
     return i18n.global.getLocaleMessage(unref(getLocale)?.antdLocale ?? {});
   });
 

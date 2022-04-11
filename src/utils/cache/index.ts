@@ -8,10 +8,8 @@ export type Options = Partial<CreateStorageParams>;
 
 const createOptions = (storage: Storage, options: Options = {}): Options => {
   return {
-    // No encryption in debug mode
-    hasEncrypt: enableStorageEncryption,
-    storage,
     prefixKey: getStorageShortName(),
+    storage,
     ...options,
   };
 };
@@ -21,6 +19,13 @@ export const createStorage = (
   options: Options = {}
 ) => {
   return create(createOptions(storage, options));
+};
+
+export const createSessionStorage = (options: Options = {}) => {
+  return createStorage(sessionStorage, {
+    ...options,
+    timeout: DEFAULT_CACHE_TIME,
+  });
 };
 
 export const createLocalStorage = (options: Options = {}) => {

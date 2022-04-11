@@ -1,6 +1,6 @@
 import { REDIRECT_NAME } from "./../../router/constant";
 import { useLocalStore } from "./../../store/modules/locale";
-import { useI18n } from "vue-i18n";
+import { useI18n } from "/@/hooks/web/usel18n";
 import { useRouter } from "vue-router";
 import { useGlobSetting } from "../setting";
 import { useTitle as usePageTitle } from "@vueuse/core";

@@ -1,4 +1,5 @@
 import { set } from "lodash-es";
+import { LocaleType } from "/#/config";
 
 export function genMessage(
   langs: Record<string, Record<string, any>>,
@@ -24,13 +25,16 @@ export function genMessage(
       }
     }
   });
-  // ====== LOG START ======
-  console.log("\n");
-  console.group("Log");
-  console.log("obj", obj);
-  console.groupEnd();
-  console.log("\n");
-  // ====== LOG END ======
 
   return obj;
+}
+
+export function setHtmlPageLang(locale: LocaleType) {
+  document.querySelector("html")?.setAttribute("lang", locale);
+}
+
+export const loadLocalePool: LocaleType[] = [];
+
+export function setLoadLocalePool(cb: (loadLocalPool: LocaleType[]) => void) {
+  cb(loadLocalePool);
 }
