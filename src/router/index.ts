@@ -11,28 +11,21 @@ const getRouteNames = (array: any[]) =>
 
 getRouteNames(basicRoutes);
 
-// ====== LOG START ======
-console.log("\n");
-console.group("Log");
-console.log("WHITE_NAME_LIST", WHITE_NAME_LIST);
-console.groupEnd();
-console.log("\n");
-// ====== LOG END ======
-
 export const router = createRouter({
   history: createWebHashHistory(import.meta.env.VITE_PUBLIC_PATH),
   routes: basicRoutes as unknown as RouteRecordRaw[],
   strict: true,
 });
 
-// ====== LOG START ======
-console.log("\n");
-console.group("Log");
-console.log("router", router);
-console.groupEnd();
-console.log("\n");
-// ====== LOG END ======
-
 export function setupRouter(app: App) {
   app.use(router);
+}
+
+export function resetRouter() {
+  router.getRoutes().forEach((route) => {
+    const { name } = route;
+    if (name && !WHITE_NAME_LIST.includes(name as string)) {
+      router.hasRoute(name) && router.removeRoute(name);
+    }
+  });
 }
